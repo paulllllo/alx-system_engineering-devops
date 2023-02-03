@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Only displays network connections with listening ports
+sudo netstat -lp
