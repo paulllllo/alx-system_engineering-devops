@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Installs and configures HAProxy 1.6
+apt-get -y update
+apt-get -y install haproxy=1.6.\*
+cat >> /etc/haproxy/haproxy.cfg << EOF
+backend web-backend
+	balance roundrobin
+	server 854-web-01 35.185.106.217:80 check
+	server 854-web-02 34.74.189.221:80 check
+frontend web-frontend
+	bind *:80
+	mode http
+	default_backend web-backend
+EOF
+service haproxy restart
