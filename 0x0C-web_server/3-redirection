@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 #Install and Configure Nginx on a server
-apt-get -y update
-apt-get -y install nginx
+apt-get -y --no-upgrade update
+apt-get -y --no-upgrade install nginx
 ufw allow 'Nginx HTTP'
 mkdir -p /var/www/kelechio.tech/html
 chmod -R 755 /var/www
 echo "Hello world!" >> /var/www/kelechio.tech/html/index.html
 cp /etc/nginx/sites-available/default /etc/nginx/sites-available/kelechio.tech
-sed 's/default_server//g' /etc/nginx/sites-available/kelechio.tech
-sed 's/root /var/www/html//var/www/kelechio.tech/html/g' /etc/nginx/sites-available/kelechio.tech
-sed 's/server_name _;/server_name kelechio.tech www.kelechio.tech\n\nlocation = /redirect_me {\n\t
-    return 301 /;\n}/g' /etc/nginx/sites-available/kelechio.tech
+sed -i 's@default_server@@g' /etc/nginx/sites-available/kelechio.tech
+sed -i 's@root /var/www/html@root /var/www/kelechio.tech/html@g' /etc/nginx/sites-available/kelechio.tech
+sed -i 's@server_name _;@server_name kelechio.tech www.kelechio.tech;\n\n\tlocation = /redirect_me {\
+    \t\treturn 301 /;\n\t}@g' /etc/nginx/sites-available/kelechio.tech
 ln -s /etc/nginx/sites-available/kelechio.tech /etc/nginx/sites-enabled/
 service nginx restart
