@@ -2,7 +2,8 @@
 #Install and Configure Nginx on a server
 apt-get -y update
 apt-get -y install nginx
-#ufw allow 'Nginx HTTP'
+ufw allow 'Nginx HTTP'
+ufw enable
 mkdir -p /var/www/kelechio.tech/html
 chmod -R 755 /var/www
 echo "Hello world!" >> /var/www/kelechio.tech/html/index.html
