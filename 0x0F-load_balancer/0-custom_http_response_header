@@ -8,4 +8,4 @@ echo "404 - Not Found" > /usr/share/nginx/html/custom_404.html
 sed -i "/listen 80 default_server/a add_header X-Served-By \"$HOSTNAME\";" /etc/nginx/sites-available/default
 sed -i '/listen 80 default_server/a rewrite ^/redirect_me https://www.google.com permanent;' /etc/nginx/sites-available/default
 sed -i '/listen 80 default_server/a error_page 404 /custom_404.html; location = /custom_404.html {root /usr/share/nginx/html;\n internal;}' /etc/nginx/sites-available/default
-service nginx start
+service nginx restart
