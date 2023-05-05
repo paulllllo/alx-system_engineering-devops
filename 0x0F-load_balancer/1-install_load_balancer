@@ -5,8 +5,8 @@ apt-get -y install haproxy=1.6.\*
 cat >> /etc/haproxy/haproxy.cfg << EOF
 backend web-backend
 	balance roundrobin
-	server 854-web-01 35.185.106.217:80 check
-	server 854-web-02 34.74.189.221:80 check
+	server 157311-web-01 54.172.63.43:80 check
+	server 157311-web-02 54.197.86.203:80 check
 frontend web-frontend
 	bind *:80
 	mode http
