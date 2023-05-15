@@ -1,5 +1,5 @@
 # Postmortem
-After completing the ALX/holberton task 0x04 'Airbnb clone - Web frmework', approximately 00:07 West African Time (WAT), an outage occurred on an isolated Ubuntu 20.00 container running an Nginx web server. GET requests on the server led to 500 Internal Server Error's, when the expected response was an HTML file displaying a simple web site.
+11;rgb:0000/0000/0000After completing the ALX/holberton task 0x04 'Airbnb clone - Web frmework', approximately 00:07 West African Time (WAT), an outage occurred on an isolated Ubuntu 20.00 container running an Nginx web server. GET requests on the server led to 500 Internal Server Error's, when the expected response was an HTML file displaying a simple web site.
 
 # Debugging Process
 A very smart software engineer (me :)) encountered the issue upon opening the project and being, well, instructed to address it, roughly 01:09 WAT. He promptly proceeded to undergo solving the problem.
@@ -32,6 +32,6 @@ Test! Test test test. Test the application before deploying. This error would ha
 
 Status monitoring. Enable some uptime-monitoring service such as UptimeRobot to alert instantly upon outage of the website.
 
-Note that in response to this error, I wrote a Puppet manifest 0-strace_is_your_friend.pp to automate fixing of any such identitical errors should they occur in the future. The manifest compares some filenames with the expected filename and replaces the closest fitting filenames with the correct ones(only where the expected filename doesn't exist in that directory.
+Note that in response to this error, I wrote a Puppet manifest to automate fixing of any such identitical errors should they occur in the future. The manifest compares some filenames with the expected filename and replaces the closest fitting filenames with the correct ones(only where the expected filename doesn't exist in that directory.
 
 But of course, this situation won't repeat itself because we are smart programmers, and we never make errorse. right?
