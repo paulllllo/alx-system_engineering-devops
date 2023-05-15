@@ -1,7 +1,7 @@
 # Postmortem
 After completing the ALX/holberton task 0x04 'Airbnb clone - Web frmework', approximately 00:07 West African Time (WAT), an outage occurred on an isolated Ubuntu 20.00 container running an Nginx web server. GET requests on the server led to 500 Internal Server Error's, when the expected response was an HTML file displaying a simple web site.
 
-Debugging Process
+# Debugging Process
 A very smart software engineer (me :)) encountered the issue upon opening the project and being, well, instructed to address it, roughly 01:09 WAT. He promptly proceeded to undergo solving the problem.
 
 Checked running processes using ps aux. Two nginx processes - root and www-data - were properly running.
@@ -20,12 +20,12 @@ Tested another curl on the server. 200 A-ok!
 
 Wrote a Puppet manifest to automate fixing of the error and other similar error-types.
 
-Summation
+# Summation
 In short, a typo. Gotta love'em. In full, the app was encountering problems when trying to access a 'index.html' file which is the default file set in the configuration but could not find a file with that filename.
 
 Patch involved a simple fix on the typo, comparing the filename to the expected filename and correcting where necessary.
 
-Prevention
+# Prevention
 This outage was not a web server error, but an application error. To prevent such outages moving forward, please keep the following in mind.
 
 Test! Test test test. Test the application before deploying. This error would have arisen and could have been addressed earlier had the app been tested.
