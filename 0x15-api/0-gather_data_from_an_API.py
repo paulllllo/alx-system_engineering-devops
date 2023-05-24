@@ -6,16 +6,16 @@ imports are arranged in alphabetical order
 import requests
 import sys
 
-ID = sys.argv[1]
-user_res = requests.get(f'https://jsonplaceholder.typicode.com/users/{ID}')
-user = user_res.json()
-todo_res = requests.get('https://jsonplaceholder.typicode.com/todos')
-todos = todo_res.json()
-
-total_tasks = 0
-done_tasks = []
-
 if __name__ == "__main__":
+    ID = sys.argv[1]
+    user_res = requests.get(f'https://jsonplaceholder.typicode.com/users/{ID}')
+    user = user_res.json()
+    todo_res = requests.get('https://jsonplaceholder.typicode.com/todos')
+    todos = todo_res.json()
+
+    total_tasks = 0
+    done_tasks = []
+
     for todo in todos:
         if str(todo["userId"]) == ID:
             total_tasks += 1
