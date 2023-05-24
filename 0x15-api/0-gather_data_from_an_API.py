@@ -22,7 +22,7 @@ if __name__ == "__main__":
             if todo["completed"]:
                 done_tasks.append(todo["title"])
 
-                print(f'Employee {user["name"]} is done with tasks\
+    print(f'Employee {user["name"]} is done with tasks\
 ({len(done_tasks)}/{total_tasks}):')
-                for task in done_tasks:
-                    print(f"\t {task}")
+    for task in done_tasks:
+        print(f"\t {task}")
