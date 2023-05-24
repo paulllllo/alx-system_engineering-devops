@@ -9,23 +9,21 @@ import sys
 
 
 if __name__ == "__main__":
-    user_res = requests.get('https://jsonplaceholder.typicode.com/users/{}'
-                            .format(sys.argv[1]))
     ID = sys.argv[1]
+    url = 'https://jsonplaceholder.typicode.com/users/{}'.format(ID)
+    user_res = requests.get(url)
     user = user_res.json()
-    todo_res = requests.get('https://jsonplaceholder.typicode.com/todos')
-    todos = todo_res.json()
 
-    total_tasks = 0
+    todoUrl = url + "/todos"
+    response = requests.get(todoUrl)
+    tasks = response.json()
     done_tasks = []
 
-    for todo in todos:
-        if str(todo.get("userId")) == ID:
-            total_tasks += 1
-            if todo.get("completed"):
-                done_tasks.append(todo.get("title"))
+    for task in tasks:
+        if task.get('completed'):
+            done_tasks.append(task.get("title"))
 
     print('Employee {} is done with tasks\
-({}/{}):'.format(user.get("name"), len(done_tasks), total_tasks))
+({}/{}):'.format(user.get("name"), len(done_tasks), len(tasks)))
     for task in done_tasks:
         print("\t {}".format(task))
