@@ -17,12 +17,12 @@ if __name__ == "__main__":
     done_tasks = []
 
     for todo in todos:
-        if str(todo["userId"]) == ID:
+        if str(todo.get("userId")) == ID:
             total_tasks += 1
-            if todo["completed"]:
-                done_tasks.append(todo["title"])
+            if todo.get("completed"):
+                done_tasks.append(todo.get("title"))
 
-    print(f'Employee {user["name"]} is done with tasks\
+    print(f'Employee {user.get("name")} is done with tasks\
 ({len(done_tasks)}/{total_tasks}):')
     for task in done_tasks:
         print(f"\t {task}")
