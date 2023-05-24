@@ -3,8 +3,9 @@
 retrieves info from an api and prints the values to the standard Output
 imports are arranged in alphabetical order
 """
-import requests
+
 import sys
+import requests
 
 if __name__ == "__main__":
     ID = sys.argv[1]
