@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-accessing a REST API for todo lists of employees
+Accessing a REST API for todo lists of employees
 imports are arranged alphabetically
 """
 
