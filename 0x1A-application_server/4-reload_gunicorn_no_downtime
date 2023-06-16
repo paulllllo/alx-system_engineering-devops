@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # Gradually close gunicorn processes
-pid=$(pgrep -f "gunicorn")
-pkill -HUP "$pid"
-pkill -19 "$pid"
+pkill -HUP gunicorn
+pkill -19 gunicorn
 
 
