@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Gradually close gunicorn processes
-#pid=$(pgrep -f "gunicorn")
-#kill -HUP "$pid"
-ps aux | grep gunicorn | awk '{ print $2 }' | xargs kill -HUP
+pid=$(pgrep -f "gunicorn")
+pkill -HUP "$pid"
+pkill -19 "$pid"
+
 
