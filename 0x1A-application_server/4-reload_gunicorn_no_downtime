@@ -2,3 +2,4 @@
 # Gradually close gunicorn processes
 pid=$(pgrep -f "gunicorn")
 kill -HUP "$pid"
+sudo systemctl start gunicorn
