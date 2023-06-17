@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Gradually close gunicorn processes
-pkill -HUP gunicorn
-pkill -19 gunicorn
+#pkill -HUP gunicorn
+systemctl status gunicorn | grep -oE 'Main PID: [0-9]+' | cut -d ' ' -f3 | xargs kill -HUP
 
 
