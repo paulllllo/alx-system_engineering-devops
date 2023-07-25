@@ -3,10 +3,13 @@
 import requests
 import sys
 
+
 def main():
     ID = sys.argv[1]
-    EMPLOYEE_NAME = requests.get(f'https://jsonplaceholder.typicode.com/users/{ID}').json().get('name')
-    res = requests.get(f'https://jsonplaceholder.typicode.com/users/{ID}/todos')
+    EMPLOYEE_NAME = requests.get(f'https://jsonplaceholder.typicode.com/\
+users/{ID}').json().get('name')
+    res = requests.get(f'https://jsonplaceholder.typicode.com/users/{ID}/\
+todos')
     tasks = []
     total = 0
 
@@ -14,7 +17,8 @@ def main():
         if todo.get('completed'):
             tasks.append(todo.get('title'))
         total += 1
-    print(f'Employee {EMPLOYEE_NAME} is done with tasks({len(tasks)}/{total}):')
+    print(f'Employee {EMPLOYEE_NAME} is done with tasks({len(tasks)}/\
+{total}):')
     for task in tasks:
         print(f'\t {task}')
 
