@@ -1,2 +1,0 @@
-#!/bin/bash
-echo $PATH | tr -d -c ':' | $(($(wc -m) + 1))
